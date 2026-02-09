@@ -102,7 +102,7 @@ export const FilterSidebar = () => {
             </div>
             <div className="flex items-center space-x-2">
               <RadioGroupItem 
-                value="100-200" 
+                value="100-200"
                 id="price3" 
                 checked={currentPrice === '100-200'}
                 onClick={() =>  handleChangePrice('100-200')}

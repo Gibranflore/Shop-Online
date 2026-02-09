@@ -9,7 +9,7 @@ export const CustomFooter = () => {
             <div>
               <CustomLogo/>
               <p className="text-sm text-muted-foreground">
-                Ropa inspirada en el diseño minimalista y la innovación de Tesla.
+                Ropa inspirada en el diseño minimalista y la innovación
               </p>
             </div>
             
@@ -45,7 +45,7 @@ export const CustomFooter = () => {
           </div>
           
           <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; {new Date().getFullYear()} Tesla Style. Todos los derechos reservados.</p>
+            <p>&copy; {new Date().getFullYear()} Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>
