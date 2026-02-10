@@ -20,3 +20,24 @@ export const loginAction = async (
     throw error;
   }
 };
+
+
+export const registerAction = async (
+  email: string,
+  password: string,
+  fullName: string)
+  :Promise<AuthResponse> => {
+  try {
+    const {data } = await ShopApi.post<AuthResponse>('/auth/register',{
+      email,
+      password,
+      fullName
+    })
+    return data
+  } catch (error) {
+    console.log(error);
+    
+    throw error
+    
+  }
+}

@@ -2,6 +2,25 @@ import React from 'react';
 import { Search, Bell, MessageSquare, Settings } from 'lucide-react';
 
 export const AdminHeader: React.FC = () => {
+
+  //  const [searchParams, setSearchParams] = useSearchParams()
+  // const query = searchParams.get('query') || '';
+  // const inputRef = useRef<HTMLInputElement>(null)
+
+  // const hanldleSearch = (event: KeyboardEvent<HTMLInputElement>) => {
+  //     if (event.key !== 'Enter') return;
+  //     //Se borra todo lo que guardemos en las tallas por que crea un nuevo searchParams
+  //     const newSearchParams = new URLSearchParams()
+  //     if (!query) {
+  //       newSearchParams.delete('query')   
+  //     }else{
+  //       newSearchParams.set('query', inputRef.current!.value)
+  //     }
+  
+  //     setSearchParams(newSearchParams);
+  
+  //   }
+
   return (
     <header className="bg-white border-b border-gray-200 px-6 py-4 h-18">
       <div className="flex items-center justify-between">

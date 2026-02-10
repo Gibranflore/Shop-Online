@@ -1,6 +1,6 @@
 import type { User } from '@/interface/user.interface'
 import { create } from 'zustand'
-import { loginAction } from '../action/LoginAction';
+import { loginAction, registerAction } from '../action/LoginAction';
 import { checkAcutAction } from '../action/check-auth.actions';
 
 type AuthStatus = 'authenticated' | 'not-authenticated' | 'checking';
@@ -14,6 +14,7 @@ authStatus: AuthStatus
 isAdmin: () => boolean;
 //Actions
 login: (email: string, password: string) => Promise<boolean>
+register: (email: string, password: string, fullName:string) => Promise<boolean>
 logout: () => void;
 checkAuthStatus: () => Promise<boolean>;
 };
@@ -40,11 +41,29 @@ export const useAuthStore = create<AuthState>()((set, get) => ({
 
             set({user: data.user, token: data.token, authStatus: 'authenticated'})
             return true;
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
             localStorage.removeItem('toekn')
             set({user: null, token: null, authStatus: 'not-authenticated'})
             return false;
             
+        }
+        
+    },
+    register: async(email: string, password:string, fullName:string) => {
+        console.log({email, password, fullName});
+
+        try {
+            const data = await registerAction(email, password, fullName)
+            localStorage.setItem('token', data.token)
+
+            set({user: data.user, token: data.token, authStatus: 'authenticated'})
+            return true
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (error) {
+            localStorage.removeItem('token')
+            set({user: null, token: null, authStatus: 'not-authenticated'})
+            return false;
         }
         
     },
